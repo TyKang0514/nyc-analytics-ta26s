@@ -24,11 +24,11 @@ models:
    ta26s_assignment_work:
      staging:
        +materialized: table
-       +schema: ta26s_nyc_transit_restaurants_staging
+       +schema: ta26s_nyc_transit_restaurants_staging # dataset sane in BQ
 
      marts:
        +materialized: table
-       +schema: nyc_transit_restaurants_marts
+       +schema: ta26s_nyc_transit_restaurants_marts
       
        shared:
          +materialized: table
