@@ -2,8 +2,8 @@ version: 2
 sources:
   - name: raw
     description: Raw data loaded from NYC Open Data
-    database: ty-cis-9440
-    schema: ta26s_nyc_hw3_raw_data 
+    database: ty-cis-9440 # my BQ projectid
+    schema: ta26s_nyc_hw3_raw_data #dataset name in BQ
     tables:
       - name: source_dot_service_requests_history
         description: |
