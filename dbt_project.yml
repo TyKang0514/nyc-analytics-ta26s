@@ -21,10 +21,10 @@ models:
  tyk_analytics:
    +materialized: table
 
-   assignment_work:
+   ta26s_assignment_work:
      staging:
        +materialized: table
-       +schema: nyc_transit_restaurants_staging
+       +schema: ta26s_nyc_transit_restaurants_staging
 
      marts:
        +materialized: table
