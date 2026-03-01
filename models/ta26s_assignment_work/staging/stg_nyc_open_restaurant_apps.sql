@@ -2,7 +2,7 @@
 -- One row per one application
 
 WITH source AS (
-   SELECT * FROM {{ source('raw', 'source_nyc_open_restaurants') }}
+   SELECT * FROM {{ source('raw', 'source_nyc_open_restaurant_apps') }}
 ), -- Easier to refer to the dbt reference to a long name table this way
 
 cleaned AS (
@@ -74,11 +74,11 @@ cleaned AS (
    -- WHERE (agency = 'DOT' OR agency_name LIKE '%Transportation%')
    WHERE globalid IS NOT NULL
    AND time_of_submission IS NOT NULL
-   AND CAST(time_of_submission AS DATE) >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 YEAR)
+   -- AND CAST(time_of_submission AS DATE) >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 YEAR)
    AND borough IS NOT NULL
 
    -- Deduplicate
-   QUALIFY ROW_NUMBER() OVER (PARTITION BY application_id ORDER BY time_of_submission DESC) = 1
+   QUALIFY ROW_NUMBER() OVER (PARTITION BY globalid ORDER BY time_of_submission DESC) = 1
 )
 
 SELECT * FROM cleaned
