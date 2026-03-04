@@ -12,7 +12,7 @@ cleaned AS (
        * EXCEPT (
            globalid, -- check
            time_of_submission, -- check           
-           seating_interest_sidewalk, -- check (changed name)
+           seating_interest_sidewalk, -- check 
            restaurant_name, -- check
            legal_business_name, -- check
            bulding_number, -- check
@@ -36,7 +36,7 @@ cleaned AS (
        CAST(time_of_submission AS TIMESTAMP) AS time_of_submission,
 
        -- Application details
-       CAST(seating_interest_sidewalk AS STRING) AS seating_interest,
+       CAST(seating_interest_sidewalk AS STRING) AS seating_interest_sidewalk,
        CAST(restaurant_name AS STRING) AS restaurant_name,
        CAST(legal_business_name AS STRING) AS legal_business_name,
        
